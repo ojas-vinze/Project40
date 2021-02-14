@@ -95,18 +95,7 @@ class Game{
             fruitGroup.add(fruits);
             fruitGroup.setVelocityEach(0,8);
 
-            if(fruitGroup.isTouching(player1)){
-                fruitGroup.destroyEach();
-                players[index-1].score++;
-            }
-
-            if(fruitGroup.isTouching(player2)){
-                fruitGroup.destroyEach();
-                player2.score++;
-            }
-
-            text(players[index-1].name + ":" + players[index-1].score,70,30);
-            text(players[index-1].name + ":" + players[index-1].score,70,50);
+            
         }
         
     }
