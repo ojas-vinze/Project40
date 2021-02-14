@@ -23,7 +23,7 @@ class Game{
                     playerCount = playerCountRef.val();
                     player.getCount();
                 }
-                form = new Form()
+                form = new Form();
                 form.display();
             }
     player1 = createSprite(200,500);
@@ -61,7 +61,7 @@ class Game{
             if(index===player.index){
                 fill("black");
                 textSize(20);
-                text(player.name,players[index-1].x,players[index-1].y);
+                text(player.name,players[index-1].x-15,players[index-1].y+25);
                 camera.position.x=width/2;
             }
         }
@@ -69,12 +69,12 @@ class Game{
 
         // Give movements for the players using arrow keys
         if(keyIsDown(LEFT_ARROW) && player.index!==null){
-            player.distance-=10;
+            player.distance+=10;
             player.update();
         }
 
-        if(keyIsDown(RIGHT_ARROW && player.index!==null)){
-            player.distance+=10;
+        if(keyIsDown(RIGHT_ARROW) && player.index!==null){
+            player.distance=player.distance-10;
             player.update();
         }
         // Create and spawn fruits randomly
@@ -92,7 +92,21 @@ class Game{
                         break;
                 default: break;
             }
-            fruits.velocityY=8;
+            fruitGroup.add(fruits);
+            fruitGroup.setVelocityEach(0,8);
+
+            if(fruitGroup.isTouching(player1)){
+                fruitGroup.destroyEach();
+                players[index-1].score++;
+            }
+
+            if(fruitGroup.isTouching(player2)){
+                fruitGroup.destroyEach();
+                player2.score++;
+            }
+
+            text(players[index-1].name + ":" + players[index-1].score,70,30);
+            text(players[index-1].name + ":" + players[index-1].score,70,50);
         }
         
     }
