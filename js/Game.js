@@ -79,23 +79,26 @@ class Game{
         }
         // Create and spawn fruits randomly
         if(frameCount%60===0){
+            rand = Math.round(random());
             switch(rand){
                 case 1: fruits.addImage(fruit1img);
                         break;
-                case 1: fruits.addImage(fruit1img);
+                case 2: fruits.addImage(fruit2img);
                         break;
-                case 1: fruits.addImage(fruit1img);
+                case 3: fruits.addImage(fruit3img);
                         break;
-                case 1: fruits.addImage(fruit1img);
+                case 4: fruits.addImage(fruit4img);
                         break;
-                case 1: fruits.addImage(fruit1img);
+                case 5: fruits.addImage(fruit5img);
                         break;
                 default: break;
             }
             fruitGroup.add(fruits);
             fruitGroup.setVelocityEach(0,8);
-
             
+            if(player.score===1000){
+                gameState=2;
+            }
         }
         
     }
