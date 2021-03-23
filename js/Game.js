@@ -77,9 +77,11 @@ class Game{
             player.distance=player.distance-10;
             player.update();
         }
+
+        rande = random(30,960);
+        rand = Math.round(random(1,5));
         // Create and spawn fruits randomly
         if(frameCount%60===0){
-            rand = Math.round(random());
             switch(rand){
                 case 1: fruits.addImage(fruit1img);
                         break;
@@ -95,10 +97,6 @@ class Game{
             }
             fruitGroup.add(fruits);
             fruitGroup.setVelocityEach(0,8);
-            
-            if(player.score===1000){
-                gameState=2;
-            }
         }
         
     }
