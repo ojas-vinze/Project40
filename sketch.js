@@ -11,10 +11,8 @@ var fruits;
 var fruitGroup;
 var fruit1img, fruit2img, fruit3img, fruit4img, fruit5img;
 var playerimg;
-var player1score =0;
-var player2score =0;
-var rand = Math.round(random(1,5));
-var rande = random(30,960);
+var rand;
+var rande;
 
 function preload(){
   back_img = loadImage("images/jungle.jpg");
@@ -32,7 +30,6 @@ function setup() {
   game = new Game();
   game.getState();
   game.start();
-  fruits = createSprite(rande,10,20,20);
 }
 
 function draw() {
