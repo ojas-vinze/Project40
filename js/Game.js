@@ -82,6 +82,8 @@ class Game{
         rand = Math.round(random(1,5));
         // Create and spawn fruits randomly
         if(frameCount%60===0){
+            rande = random(30,960);
+            fruits = createSprite(rande,10,20,20);
             switch(rand){
                 case 1: fruits.addImage(fruit1img);
                         break;
